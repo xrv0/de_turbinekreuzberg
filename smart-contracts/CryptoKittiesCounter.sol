@@ -7,7 +7,7 @@ abstract contract ERC721 {
 contract CryptoKittiesCounter {
     address constant contractAdress = 0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF; // contractAdess vom cryptokitties contract
     
-    function get() public view returns (uint256) {
+    function getKittieBalance() public view returns (uint256) {
         return ERC721(contractAdress).balanceOf(address(this));
     }
 }
