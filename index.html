@@ -9,10 +9,9 @@
     <script src="main.js"></script>
   </head>
   <body>
-    <h1 class="welcometext">WELCOME</h1>
       <h2>SMART CONTRACT CODE</h2>
     <section class="section0" class="code">
-      <textarea readonly  rows="16" cols="80" class="textarecode">
+      <div class="textarecode">
 pragma solidity ^0.6.0;
 
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/IERC721.sol";
@@ -32,7 +31,7 @@ contract CryptoKittiesCounter {
         return IERC721(ckAddress).balanceOf(address(this));
     }
 }
-      </textarea>
+      </div>
     <section class="section1" class="counter">
       <h2>COUNTER</h2>
       <p>
