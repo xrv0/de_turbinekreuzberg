@@ -10,4 +10,4 @@ window.setInterval(() => {
         const kittiesCounterElement = document.getElementById("kitties-counter");
         kittiesCounterElement.innerText = kittiesBalance.toString();
     });
-}, 5* 1000);
+}, 2 * 1000);
