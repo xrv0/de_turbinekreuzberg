@@ -1,2 +1,2 @@
 # de_turbinekreuzberg
-Dezentale Projekte während unserem Praktikum bei der TurbineKeuzberg
+Dezentale Projekte während unserem Praktikum bei Turbine Kreuzberg
