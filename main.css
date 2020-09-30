@@ -11,10 +11,23 @@ color: #1ed245;
   padding: 0,3px;
 }
 .section1{
+  margin: 10px,0,10px,0;
   background-color: #282c34;
-
+  padding: 10px,0,10px,0;
+  border: 5px;
+  padding: 0,3px;
 }
 .menubarcontent{
   list-style-type: none;
   display: inline;
+  background-color: #3c434d;
+  margin:auto;
+}
+.menubarcontent a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.welcometext {
+  text-align: center;
+  font-size: 50px;
 }
