@@ -8,6 +8,6 @@ window.setInterval(() => {
     smartContract.getKittieBalance().then(output => {
         let kittiesBalance = parseInt(output._hex, 16)
         const kittiesCounterElement = document.getElementById("kitties-counter");
-        kittiesCounterElement.innerText = kittenBalance.toString();
+        kittiesCounterElement.innerText = kittiesBalance.toString();
     });
 }, 5* 1000);
