@@ -10,14 +10,24 @@
   </head>
   <body>
     <h1 class="welcometext">WELCOME</h1>
-    <div class="menubarcontent">
-      <a href="#home">HOME</a>
-      <a href="#picture">PICTURE</a>
-      <a href="#counter">COUNTER</a>
-    </div>
-    <section class="section0" class="picture">
-      <h2>PICTURE</h2>
-    </section>
+      <h2>SMART CONTRACT CODE</h2>
+    <section class="section0" class="code">
+      <textarea readonly  rows="16" cols="80" class="textarecode">
+        pragma solidity ^0.6.0;
+
+        abstract contract ERC721 {
+            function balanceOf(address _owner) public virtual view returns (uint256 balance);
+        }
+
+        contract CryptoKittiesCounter {
+            address constant contractAdress = 0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF; // contractAdess vom cryptokitties contract
+
+            function getKittieBalance() public view returns (uint256) {
+                return ERC721(contractAdress).balanceOf(address(this));
+            }
+        }
+
+      </textarea>
     <section class="section1" class="counter">
       <h2>COUNTER</h2>
       <p>
