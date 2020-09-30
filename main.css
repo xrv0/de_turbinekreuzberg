@@ -5,12 +5,16 @@ color: #1ed245;
 }
 .section0 {
   margin: 10px,0,10px,0;
-  background-color: #414461;
+  background-color: #222429;
   padding: 10px,0,10px,0;
   border: 5px;
   padding: 0,3px;
 }
 .section1{
   background-color: #282c34;
-  
+
+}
+.menubarcontent{
+  list-style-type: none;
+  display: inline;
 }
