@@ -8,20 +8,22 @@ const messageSubmitButton = document.getElementById("message-submit-button");
 let contract;
 let provider;
 
-function updateMessages() {
-    contract.getMessagesSize().then(output => {
+async function updateMessages() {
+    await contract.getMessagesSize().then(output => {
         let size = parseInt(output._hex, 16);
         let existingMessages = messagesList.children.length;
 
-        if(size > existingMessages) {
-            for(let i = existingMessages; i < size; i++) {
-                contract.messages(i).then(message => {
-                    let li = document.createElement("li");
-                    li.appendChild(document.createTextNode(message));
-                    messagesList.appendChild(li);
-                })
+        (async function() {
+            if(size > existingMessages) {
+                for(let i = existingMessages; i < size; i++) {
+                    await contract.messages(i).then(message => {
+                        let li = document.createElement("li");
+                        li.appendChild(document.createTextNode(message));
+                        messagesList.appendChild(li);
+                    })
+                }
             }
-        }
+        })();
     });
 }
 
@@ -38,7 +40,7 @@ window.ethereum.enable().then(() => {
     provider = new ethers.providers.Web3Provider(window.ethereum);
     contract = new ethers.Contract(contractAddress, contractAbi, provider.getSigner());
 
-    updateMessages();
+    updateMessages().then(r => console.log("Updated messages!"));
     setInterval(updateMessages, 2000)
 });
 
