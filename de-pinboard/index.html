@@ -3,17 +3,33 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>De-Pinboard</title>
+    <title>Dezentrales Nachrichten-Board</title>
+
     <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="text/javascript"></script>
-    <script defer src="main.js"></script>
     <link rel="stylesheet" href="master.css">
+    <script defer src="main.js"></script>
 </head>
 <body>
-<ul id="post-list"></ul>
-<label>
-    <textarea id="message-box" name="message-box" cols="42" rows="16"></textarea>
-</label>
-<button id="message-submit-button" onclick="submitMessage()" type="button">Post</button>
-<br>
+<h1>Dezentrales Nachrichten-Board</h1>
+<h2>Posts</h2>
+<span>
+    <ul id="post-list"></ul>
+</span>
+
+<h2>Post your own message</h2>
+<span>
+    <label>
+        <textarea id="message-box" name="message-box" cols="42" rows="16"></textarea>
+    </label>
+    <br>
+    <button id="message-submit-button" type="button">Post</button>
+</span>
+
+<h2>Contract</h2>
+<span>
+    <h3>
+        <a target="_blank" href="https://rinkeby.etherscan.io/address/0x560962D72C77Ad90F5e1839FeF8E8499d46688CB">0x560962D72C77Ad90F5e1839FeF8E8499d46688CB</a>
+    </h3>
+</span>
 </body>
 </html>
