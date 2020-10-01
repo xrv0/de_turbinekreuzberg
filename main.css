@@ -25,5 +25,15 @@ color: #1ed245;
   color:  #1ed245;
 }
 .youraddress {
-  
+  background-color: #465163;
+  border-color: #1ed245;
+  resize: none;
+  color: #1ed245;
+  border-radius: 10px;
+}
+.sendingbutton {
+  background-color: #282c34;
+  border-radius: 10px;
+  border-color: #1ed245;
+  color: #1ed245;
 }
