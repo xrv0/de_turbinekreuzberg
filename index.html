@@ -15,18 +15,18 @@
     <section class="section1" class="counter">
       <h2>COUNTER</h2>
       <p>
-        Der Smart-Contract besitzt derzeit <strong id="kitties-counter">Loading...</strong> Cryptokitties!
+        The smart contract has<strong id="kitties-counter">Loading...</strong> Cryptokitties!
       </p>
     </section>
-    <section class="sendmeaktty">
+    <section class="sendmeakitty">
        <h2>
          SEND ME A KITTY
        </h2>
-      <form>
-  <label for="youraddress">Your address:
-    <input id="youraddress">
-  </label>
-</form>
+         <form action="index.html" method="post">
+          <label for="youraddress" class="youraddress">
+            <input type="text" name="YOUR ADDRESS" value="Your address">
+          </label>
+         </form>
     </section>
     <h3>
       CONTRACT ADDRESS
@@ -36,7 +36,7 @@
     </p>
     <section class="section0" class="code">
             <h2>SMART CONTRACT CODE</h2>
-      <div class="textarecode">
+      <div class="textareacode">
         <pre>
 pragma solidity ^0.6.0;
 
