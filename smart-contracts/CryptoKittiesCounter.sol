@@ -8,9 +8,13 @@ contract CryptoKittiesCounter {
     constructor() public {
         ckAddress = 0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF;
     }
-
-    function setCryptoKittiesAddress(address newCkAddress) public {
-        ckAddress = newCkAddress;
+    
+    function giveMeKittie(uint256 tokenId) public {
+        IERC721 kittieContract = IERC721(ckAddress);
+        address from = address(this);
+        address to = msg.sender;
+        
+        kittieContract.transferFrom(from, to, tokenId);
     }
     
     function getKittieBalance() public view returns (uint256) {
