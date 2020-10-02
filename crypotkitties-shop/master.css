@@ -1,16 +1,14 @@
 .home {
-background-color: #282c34;
+background-image: url("https://cutewallpaper.org/21/dark-wallpaper-1080p/79-1080P-Black-Wallpapers-on-WallpaperPlay.jpg");
 font-family: 'Source Code Pro', monospace;
-color: #1ed245;
+color: #ffff;
 }
 .section0 {
   margin: 100px,0,100px,0;
-  background-color: #222429;
   padding: 50px,0,10px,0;
 }
 .section1{
   margin: 10px,0,10px,0;
-  background-color: #282c34;
   padding: 10px,0,10px,0;
   border: 5px;
   padding: 0,3px;
@@ -22,8 +20,10 @@ color: #1ed245;
 .textareacode {
   resize: none;
   background-color: #222429;
-  color:  #1ed245;
+  color:  #ffff;
 }
 .youraddress {
-  
+  background-color: #222429;
+  color: #ffff;
+  border-radius: 5px;
 }
