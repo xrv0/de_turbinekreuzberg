@@ -4,11 +4,11 @@ font-family: 'Source Code Pro', monospace;
 color: #ffff;
 }
 .section0 {
-  margin: 100px,0,100px,0;
+  margin-left: 50px;
   padding: 50px,0,10px,0;
 }
 .section1{
-  margin: 10px,0,10px,0;
+  margin-left: 50px;
   padding: 10px,0,10px,0;
   border: 5px;
   padding: 0,3px;
@@ -26,4 +26,7 @@ color: #ffff;
   background-color: #222429;
   color: #ffff;
   border-radius: 5px;
+}
+.sendmeakitty {
+  margin-left: 50px;
 }
