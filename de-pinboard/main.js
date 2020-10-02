@@ -23,7 +23,7 @@ async function updateMessages() {
                         const message = args[1];
 
                         let li = document.createElement("li");
-                        li.innerHTML = "<div><span class='author'>Author: " + author + "</span><div class='message'>"+ message + "</div></div>";
+                        li.innerHTML = "<div><span class='author'>" + author + "</span><div class='message'>"+ message + "</div></div>";
                         messagesList.appendChild(li);
                     }else {
                         let li = document.createElement("li");
