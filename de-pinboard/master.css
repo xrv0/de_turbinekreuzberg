@@ -31,3 +31,7 @@ body {
   background-color: #ff0000;
   color: #ffff;
 }
+.author {
+  text-decoration: underline;
+  text-decoration-style: solid;
+}
