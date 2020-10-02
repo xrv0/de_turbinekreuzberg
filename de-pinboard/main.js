@@ -9,21 +9,21 @@ let contract;
 let provider;
 
 async function updateMessages() {
-    await contract.getMessagesSize().then(output => {
+    contract.getMessagesSize().then(async output => {
         let size = parseInt(output._hex, 16);
         let existingMessages = messagesList.children.length;
 
-        (async function() {
-            if(size > existingMessages) {
-                for(let i = existingMessages; i < size; i++) {
-                    await contract.messages(i).then(message => {
-                        let li = document.createElement("li");
-                        li.appendChild(document.createTextNode(message));
-                        messagesList.appendChild(li);
-                    })
-                }
+        if (size > existingMessages) {
+            for (let i = existingMessages; i < size; i++) {
+                await contract.messages(i).then(message => {
+                    let li = document.createElement("li");
+                    li.appendChild(document.createTextNode(message));
+                    messagesList.appendChild(li);
+                })
             }
-        })();
+        }
+    }).then(() => {
+        setTimeout(updateMessages, 1000);
     });
 }
 
@@ -41,6 +41,5 @@ window.ethereum.enable().then(() => {
     contract = new ethers.Contract(contractAddress, contractAbi, provider.getSigner());
 
     updateMessages().then(r => console.log("Updated messages!"));
-    setInterval(updateMessages, 2000)
 });
 
