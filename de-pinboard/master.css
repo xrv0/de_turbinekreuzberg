@@ -4,11 +4,22 @@ body {
   color: #e3e3e3;
 }
 
+#headline {
+  width: 100%;
+  text-align: center;
+}
+
 #post-list {
   background-color: #1d1d1d;
   border-radius: 5px;
   padding: 10px;
   list-style-type: none;
+}
+
+#message-post-area {
+  background-color: #1d1d1d;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 #post-list li {
