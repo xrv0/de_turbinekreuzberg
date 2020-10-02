@@ -32,6 +32,7 @@ messageSubmitButton.onclick = () => {
     if(text.length > 0) {
         contract.postMessage(text).then(() => {
             console.log("Posted message: " + text);
+            messageBox.value = "";
         });
     }
 }
