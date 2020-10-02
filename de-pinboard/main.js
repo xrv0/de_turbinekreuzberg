@@ -4,6 +4,7 @@ const contractAddress = "0x560962D72C77Ad90F5e1839FeF8E8499d46688CB";
 const messageBox = document.getElementById("message-box")
 const messagesList = document.getElementById("post-list")
 const messageSubmitButton = document.getElementById("message-submit-button");
+const authorBox = document.getElementById("author-box");
 
 let contract;
 let provider;
@@ -15,10 +16,20 @@ async function updateMessages() {
 
         if (size > existingMessages) {
             for (let i = existingMessages; i < size; i++) {
-                await contract.messages(i).then(message => {
-                    let li = document.createElement("li");
-                    li.appendChild(document.createTextNode(message));
-                    messagesList.appendChild(li);
+                await contract.messages(i).then(value => {
+                    const args = value.split("$");
+                    if(args.length == 2) {
+                        const author = args[0];
+                        const message = args[1];
+
+                        let li = document.createElement("li");
+                        li.innerHTML = "<div><span class='author'>Author: " + author + "</span><div class='message'>"+ message + "</div></div>";
+                        messagesList.appendChild(li);
+                    }else {
+                        let li = document.createElement("li");
+                        li.appendChild(document.createTextNode(value));
+                        messagesList.appendChild(li);
+                    }
                 })
             }
         }
@@ -29,10 +40,13 @@ async function updateMessages() {
 
 messageSubmitButton.onclick = () => {
     const text = messageBox.value;
-    if(text.length > 0) {
-        contract.postMessage(text).then(() => {
-            console.log("Posted message: " + text);
+    const author = authorBox.value;
+
+    if(text.length > 0 && author.length > 0) {
+        contract.postMessage(author + "$" + text).then(() => {
+            console.log("Posted message: " + author + "$" + text);
             messageBox.value = "";
+            authorBox.value = "";
         });
     }
 }
