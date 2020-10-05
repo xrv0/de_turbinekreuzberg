@@ -120,6 +120,9 @@ async function setup() {
             let erc721Asset = data.assets[assetNumber];
             const id = erc721Asset.id;
 
+            ckContract.ownerOf(id.toString()).then(owner => {
+                console.log(owner);
+            });
             let li = document.createElement("li");
             li.innerHTML = "<div class=\"ck-token\">\n" +
                 "                    <img src=\"" + erc721Asset.image_original_url + "\" alt=\"\" class=\"ck-token-image\">\n" +
@@ -139,8 +142,8 @@ async function setup() {
 }
 
 function buyToken(tokenId) {
-    mohanTokenContract.approve(kittieTraderContractAddress, (1).toString()).then(() => {
-        kittieTraderContract.giveMeKittie(tokenId).then(() => {
+    mohanTokenContract.approve(kittieTraderContractAddress, (1).toString(), {gasLimit: 2500000}).then(() => {
+        kittieTraderContract.giveMeKittie(tokenId, {gasLimit: 2500000}).then(() => {
             console.log("Successfully transacted!");
             window.alert("Successfully bought kittie number " + tokenId);
             window.location.reload();
