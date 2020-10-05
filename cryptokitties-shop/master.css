@@ -1,36 +1,32 @@
 .home {
-background-image: url("https://cutewallpaper.org/21/dark-wallpaper-1080p/79-1080P-Black-Wallpapers-on-WallpaperPlay.jpg");
-font-family: 'Roboto', sans-serif;
-color: #ffff;
+  background-color: #323232;
+  font-family: 'Source Code Pro', monospace;
+  color: #ffff;
 }
-.section0 {
-  margin-left: 50px;
-  padding: 50px,0,10px,0;
+
+section {
+  margin-left: 20px;
+  margin-bottom: 10px;
   font-size: 19px;
 }
-.section1{
-  margin-left: 50px;
-  padding: 10px,0,10px,0;
-  border: 5px;
-  padding: 0,3px;
-  font-size: 19px;
-}
-.welcometext {
+
+.welcome-text {
   text-align: center;
   font-size: 65px;
 }
-.textareacode {
-  resize: none;
-  color:  #ffff;
-  font-size: 19px;
+
+.ck-token-image {
+  width: 200px;
+  height: 200px;
 }
-.youraddress {
-  background-color: #222429;
-  color: #ffff;
-  border-radius: 5px;
-  font-size: 19px;
+
+.ck-token {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid white;
 }
-.sendmeakitty {
-  margin-left: 50px;
-  font-size: 19px;
+
+#ck-owned-tokens-list {
+  padding-left: 10px;
+  list-style-type: none;
 }

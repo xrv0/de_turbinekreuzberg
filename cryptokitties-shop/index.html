@@ -9,16 +9,16 @@
       <script defer src="main.js"></script>
   </head>
   <body>
-    <h1 class="welcometext">CRYPTOKITTIES SHOP</h1>
+    <h1 class="welcome-text">CRYPTOKITTIES SHOP</h1>
 </pre>
       </div>
-    <section class="section0" class="counter">
+    <section class="counter-section" class="counter">
       <h2>COUNTER</h2>
       <p>
         The smart contract has <strong id="kitties-counter"> loading...</strong> Cryptokitties!
       </p>
     </section>
-    <section class="sendmeakitty">
+    <section class="shop-section">
        <h2>
          BUY A KITTY
        </h2>
@@ -29,30 +29,10 @@
         <button type="button" id="ck-buy-button">
             Buy
         </button>
+        <ul id="ck-owned-tokens-list">
+            <li>
+            </li>
+        </ul>
     </section>
-    <section class="section1" class="code">
-            <h2>SMART CONTRACT CODE</h2>
-      <div class="textareacode">
-        <pre>
-pragma solidity ^0.6.0;
-
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/IERC721.sol";
-
-contract CryptoKittiesCounter {
-    address public ckAddress;
-
-    constructor() public {
-        ckAddress = 0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF;
-    }
-
-    function setCryptoKittiesAddress(address newCkAddress) public {
-        ckAddress = newCkAddress;
-    }
-
-    function getKittieBalance() public view returns (uint256) {
-        return IERC721(ckAddress).balanceOf(address(this));
-    }
-}
-  </section>
   </body>
 </html>
