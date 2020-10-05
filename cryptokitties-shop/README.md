@@ -21,4 +21,12 @@ npx oz compile
 1. use the CryptoKitty's contract to transfer kitties to the basket's address
 2. check the basket balance `npx oz call` -> `getKittieBalance`
 3. transfer back the kitty `npx oz send-tx` -> `giveMeKittie(number)`
- 
+
+## ERC20 ("Sury"-)token sample
+
+`npx oz deploy` -> regular -> `@openzeppelin/contracts-ethereum-package/ERC20PresetMinterPauserUpgradeSafe`  
+`npx oz send-tx` -> initialize("SURY", "SRY") 
+(you cannot call that method twice ;) ) 
+`npx oz send-tx` mint(<some receiver>, 20000000000000000000) 
+(tokens must me given in wei following the 18 decimals standard in ERC20)
+

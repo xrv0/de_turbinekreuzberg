@@ -1,7 +1,7 @@
 {
   "fileName": "CryptoKittiesBasket.sol",
   "contractName": "KittyCore",
-  "source": "// SPDX-License-Identifier: Unlicensed\npragma solidity ^0.6.12;\n\n// Import the IERC20 interface and and SafeMath library\nimport \"@openzeppelin/contracts-ethereum-package/contracts/token/ERC721/ERC721.sol\";\nimport \"@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol\";\n\nabstract contract KittyCore is IERC721 {\n    //function tokensOfOwner(address _owner) external virtual view returns(uint256[] memory ownerTokens);\n    function transfer(address _to, uint256 _tokenId) external virtual;\n}\n\ncontract CryptoKittiesBasket is Initializable {\n    // ckAddress = 0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF;\n    KittyCore _ck;\n\n    function initialize(KittyCore ck) public initializer {\n        _ck = ck;\n    }\n\n    function giveMeKittie(uint256 tokenId) public {\n        _ck.transfer(msg.sender, tokenId);\n    }\n\n    function getKittieBalance() public view returns (uint256) {\n        return _ck.balanceOf(address(this));\n    }\n}\n",
+  "source": "// SPDX-License-Identifier: Unlicensed\npragma solidity ^0.6.12;\n\n// Import the IERC20 interface and and SafeMath library\nimport \"@openzeppelin/contracts-ethereum-package/contracts/token/ERC721/ERC721.sol\";\nimport \"@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol\";\n\nabstract contract KittyCore is IERC721 {\n    //function tokensOfOwner(address _owner) external virtual view returns(uint256[] memory ownerTokens);\n    function transfer(address _to, uint256 _tokenId) external virtual;\n}\n\ncontract CryptoKittiesBasket is Initializable {\n    // ckAddress = 0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF;\n    KittyCore _ck;\n\n    function initialize(KittyCore ck) public initializer {\n        //todo: check wether KittyCore.name() == \"CryptoKitties\")\n        _ck = ck;\n    }\n\n    function giveMeKittie(uint256 tokenId) public {\n        _ck.transfer(msg.sender, tokenId);\n    }\n\n    function getKittieBalance() public view returns (uint256) {\n        return _ck.balanceOf(address(this));\n    }\n}\n",
   "sourcePath": "contracts/CryptoKittiesBasket.sol",
   "sourceMap": "",
   "deployedSourceMap": "",
@@ -556,7 +556,7 @@
             "body": {
               "id": 2588,
               "nodeType": "Block",
-              "src": "695:25:14",
+              "src": "695:91:14",
               "statements": [
                 {
                   "expression": {
@@ -573,7 +573,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 2577,
-                      "src": "705:3:14",
+                      "src": "771:3:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_KittyCore_$2573",
                         "typeString": "contract KittyCore"
@@ -588,13 +588,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 2579,
-                      "src": "711:2:14",
+                      "src": "777:2:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_KittyCore_$2573",
                         "typeString": "contract KittyCore"
                       }
                     },
-                    "src": "705:8:14",
+                    "src": "771:8:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_KittyCore_$2573",
                       "typeString": "contract KittyCore"
@@ -602,7 +602,7 @@
                   },
                   "id": 2587,
                   "nodeType": "ExpressionStatement",
-                  "src": "705:8:14"
+                  "src": "771:8:14"
                 }
               ]
             },
@@ -679,7 +679,7 @@
               "src": "695:0:14"
             },
             "scope": 2618,
-            "src": "642:78:14",
+            "src": "642:144:14",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
@@ -688,7 +688,7 @@
             "body": {
               "id": 2602,
               "nodeType": "Block",
-              "src": "772:50:14",
+              "src": "838:50:14",
               "statements": [
                 {
                   "expression": {
@@ -703,7 +703,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": -15,
-                          "src": "795:3:14",
+                          "src": "861:3:14",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
@@ -717,7 +717,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "795:10:14",
+                        "src": "861:10:14",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -730,7 +730,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 2591,
-                        "src": "807:7:14",
+                        "src": "873:7:14",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -755,7 +755,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 2577,
-                        "src": "782:3:14",
+                        "src": "848:3:14",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_KittyCore_$2573",
                           "typeString": "contract KittyCore"
@@ -769,7 +769,7 @@
                       "memberName": "transfer",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 2572,
-                      "src": "782:12:14",
+                      "src": "848:12:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256) external"
@@ -783,7 +783,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "782:33:14",
+                    "src": "848:33:14",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
@@ -792,7 +792,7 @@
                   },
                   "id": 2601,
                   "nodeType": "ExpressionStatement",
-                  "src": "782:33:14"
+                  "src": "848:33:14"
                 }
               ]
             },
@@ -817,7 +817,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 2603,
-                  "src": "748:15:14",
+                  "src": "814:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -828,7 +828,7 @@
                     "id": 2590,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "748:7:14",
+                    "src": "814:7:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -838,16 +838,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "747:17:14"
+              "src": "813:17:14"
             },
             "returnParameters": {
               "id": 2593,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "772:0:14"
+              "src": "838:0:14"
             },
             "scope": 2618,
-            "src": "726:96:14",
+            "src": "792:96:14",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
@@ -856,7 +856,7 @@
             "body": {
               "id": 2616,
               "nodeType": "Block",
-              "src": "886:52:14",
+              "src": "952:52:14",
               "statements": [
                 {
                   "expression": {
@@ -872,7 +872,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -28,
-                            "src": "925:4:14",
+                            "src": "991:4:14",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_CryptoKittiesBasket_$2618",
                               "typeString": "contract CryptoKittiesBasket"
@@ -892,7 +892,7 @@
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "917:7:14",
+                          "src": "983:7:14",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
@@ -901,7 +901,7 @@
                             "id": 2610,
                             "name": "address",
                             "nodeType": "ElementaryTypeName",
-                            "src": "917:7:14",
+                            "src": "983:7:14",
                             "typeDescriptions": {
                               "typeIdentifier": null,
                               "typeString": null
@@ -916,7 +916,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "917:13:14",
+                        "src": "983:13:14",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -938,7 +938,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 2577,
-                        "src": "903:3:14",
+                        "src": "969:3:14",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_KittyCore_$2573",
                           "typeString": "contract KittyCore"
@@ -952,7 +952,7 @@
                       "memberName": "balanceOf",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 1418,
-                      "src": "903:13:14",
+                      "src": "969:13:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
                         "typeString": "function (address) view external returns (uint256)"
@@ -966,7 +966,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "903:28:14",
+                    "src": "969:28:14",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -976,7 +976,7 @@
                   "functionReturnParameters": 2607,
                   "id": 2615,
                   "nodeType": "Return",
-                  "src": "896:35:14"
+                  "src": "962:35:14"
                 }
               ]
             },
@@ -993,7 +993,7 @@
               "id": 2604,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "853:2:14"
+              "src": "919:2:14"
             },
             "returnParameters": {
               "id": 2607,
@@ -1007,7 +1007,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 2617,
-                  "src": "877:7:14",
+                  "src": "943:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1018,7 +1018,7 @@
                     "id": 2605,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "877:7:14",
+                    "src": "943:7:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1028,20 +1028,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "876:9:14"
+              "src": "942:9:14"
             },
             "scope": 2618,
-            "src": "828:110:14",
+            "src": "894:110:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
           }
         ],
         "scope": 2619,
-        "src": "507:433:14"
+        "src": "507:499:14"
       }
     ],
-    "src": "39:902:14"
+    "src": "39:968:14"
   },
   "bytecode": "0x",
   "deployedBytecode": "0x",
