@@ -91,6 +91,7 @@ Result {
 ```
 
 ## deploy upgradeable Basket
+-> see docs in crypotkitties-shop
 
 
 ### local accounts
