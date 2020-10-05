@@ -1,0 +1,27 @@
+{
+  "manifestVersion": "2.2",
+  "contracts": {
+    "KittyCore": "KittyCore"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts-ethereum-package": "^2.5"
+  },
+  "name": "CryptoKitties",
+  "version": "1.0.0",
+  "compiler": {
+    "compilerSettings": {
+      "optimizer": {
+        "enabled": false,
+        "runs": "200"
+      }
+    },
+    "typechain": {
+      "enabled": false
+    },
+    "manager": "openzeppelin",
+    "solcVersion": "0.4.26",
+    "artifactsDir": "build/contracts",
+    "contractsDir": "contracts"
+  },
+  "telemetryOptIn": false
+}

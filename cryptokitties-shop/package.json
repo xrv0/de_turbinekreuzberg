@@ -1,0 +1,17 @@
+{
+  "name": "crypotkitties-shop",
+  "version": "1.0.0",
+  "description": "Auf der Webseite werden alle Katzen, die dem Smart Contract gehören mit dem entsprechendem Bild angezeigt. Es gibt die Möglichkeit eine auszuwählen und sie dann mit einem SURY Token zu kaufen. Wenn man eine Cryptokittie an den Smart Contract schickt, bekommt man einen SURY Token als Ausgleich.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/cli": "^2.8.2",
+    "@openzeppelin/contracts-ethereum-package": "^3.0.0",
+    "@openzeppelin/upgrades": "^2.8.0"
+  }
+}

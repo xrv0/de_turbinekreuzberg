@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  ganache:
+    image: trufflesuite/ganache-cli
+    volumes:
+      - ./.ganache_data:/ganache_data
+    ports:
+      - "7545:8545"
+    command:
+      - --mnemonic=minimum symptom minute gloom tragic situate silver mechanic salad amused elite hotel
+      - --networkId=5779
+      - -l 10000000
+      - -b 15
