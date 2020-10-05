@@ -22,27 +22,13 @@
        <h2>
          BUY A KITTY
        </h2>
-         <form action="index.html" method="post">
-           <p>
-             Type in the arival address
-           </p>
-          <label class="youraddress">
-            <input class="youraddress" for="youraddress" type="text" name="YOUR ADDRESS" value="Your address">
-          </label>
-             <button onclick="alert('Your transfer will beginn soon')">
-                 Send
-             </button>
-         </form>
-         <div class="contractaddress">
-           <h3>
-             CONTRACT ADDRESS
-           </h3>
-           <p>
-             Send a mohan token to this address. <br> <br>
-             0x6EbcaE41064DFeb758c6aE2408c8C1A2656eCB1d <br>
-
-           </p>
-         </div>
+        <label for="ck-token-id">
+            CryptoKittie Token ID
+        </label>
+        <input type="number" name="ck-token-id" id="ck-token-id">
+        <button type="button" id="ck-buy-button">
+            Buy
+        </button>
     </section>
     <section class="section1" class="code">
             <h2>SMART CONTRACT CODE</h2>
