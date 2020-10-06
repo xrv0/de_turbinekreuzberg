@@ -13,26 +13,33 @@
 </pre>
       </div>
     <section class="counter-section" class="counter">
-      <h2>COUNTER</h2>
       <p>
-        The smart contract has <strong id="kitties-counter"> loading...</strong> Cryptokitties!
+        The smart contract has <strong id="kitties-balance"> loading...</strong> Cryptokitties and a balance of <strong id="sry-balance"> loading... </strong>!
       </p>
     </section>
     <section class="shop-section">
        <h2>
          BUY A KITTY
        </h2>
-        <label for="ck-token-id">
+        <label for="ck-token-id-buy">
             CryptoKittie Token ID
         </label>
-        <input type="number" name="ck-token-id" id="ck-token-id">
+        <input type="number" name="ck-token-id" id="ck-token-id-buy">
         <button type="button" id="ck-buy-button">
             Buy
         </button>
-        <ul id="ck-owned-tokens-list">
-            <li>
-            </li>
-        </ul>
+        <ul id="ck-owned-tokens-list-buy"></ul>
+    </section>
+    <section class="sell-section">
+        <h2>SELL A KITTIE</h2>
+        <label for="ck-token-id-sell">
+            CryptoKittie Token ID
+        </label>
+        <input type="number" name="ck-token-id" id="ck-token-id-sell">
+        <button type="button" id="ck-sell-button">
+            Sell
+        </button>
+        <ul id="ck-owned-tokens-list-sell"></ul>
     </section>
   </body>
 </html>

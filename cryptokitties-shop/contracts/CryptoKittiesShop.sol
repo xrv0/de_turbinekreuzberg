@@ -7,7 +7,6 @@ import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC721/ERC721.s
 import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
 
 abstract contract KittyCore is IERC721 {
-    //function tokensOfOwner(address _owner) external virtual view returns(uint256[] memory ownerTokens);
     function transfer(address _to, uint256 _tokenId) external virtual;
 }
 

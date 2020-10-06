@@ -2,89 +2,7 @@ let provider = new ethers.providers.Web3Provider(window.ethereum)
 let signer;
 
 const kittieTraderContractAddress = "0x09De0306a8e73aD897be517E29dfc806cCe9E86E"
-const kittieTraderContractAbi = [
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "tokenId",
-                "type": "uint256"
-            }
-        ],
-        "name": "giveMeKittie",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "constructor"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "ckAddress",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getKittieBalance",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getMohanTokenBalance",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "mtAddress",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    }
-]
+const kittieTraderContractAbi = [{"inputs":[],"name":"getKittieBalance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getOurTokenBalance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"giveMeKittie","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"contract KittyCore","name":"ck","type":"address"},{"internalType":"contract IERC20","name":"ourToken","type":"address"}],"name":"initialize","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"sellKittie","outputs":[],"stateMutability":"nonpayable","type":"function"}];
 let kittieTraderContract;
 
 const ckContractAddress = "0x5b2F5EA9be3Ef941AEF3613aDc4F85B1018E874d";
@@ -96,8 +14,49 @@ const mohanTokenContractAbi = [{"inputs":[],"payable":false,"stateMutability":"n
 let mohanTokenContract;
 
 const ckBuyButton = document.getElementById("ck-buy-button");
-const ckTokenIdField = document.getElementById("ck-token-id");
-const ckOwnedTokensList = document.getElementById("ck-owned-tokens-list");
+const ckBuyTokenIdField = document.getElementById("ck-token-id-buy");
+const ckBuyOwnedTokensList = document.getElementById("ck-owned-tokens-list-buy");
+
+const ckSellButton = document.getElementById("ck-sell-button");
+const ckSellOwnedTokensList = document.getElementById("ck-owned-tokens-list-sell");
+const ckSellTokenIdField = document.getElementById("ck-token-id-sell");
+
+function listOwnedTokens(list, owner) {
+    fetch('https://rinkeby-api.opensea.io/api/v1/assets/?asset_contract_addresses=' + ckContractAddress + '&owner=' + owner)
+        .then(response => {
+            return response.json();
+        }).then(data => {
+        if(data.assets.length > 0) {
+            for (let assetNumber in data.assets) {
+                let erc721Asset = data.assets[assetNumber];
+                const id = erc721Asset.id;
+
+                let li = document.createElement("li");
+                li.innerHTML = "<div class=\"ck-token\">\n" +
+                    "                    <img src=\"" + erc721Asset.image_original_url + "\" alt=\"\" class=\"ck-token-image\">\n" +
+                    "                    <p>\n" +
+                    "                        <strong class=\"ck-token-id\">\n" +
+                    "                            ID: " + id + "\n" +
+                    "                        </strong>\n" +
+                    "                        <br>\n" +
+                    "                        <span class=\"ck-token-description\">" + erc721Asset.description + "</span>\n" +
+                    "                    </p>" +
+                    "                    <button class='ck-token-buy-button' onclick='buyToken(" + id +")'>Buy with 1 $MOHAN</button>"
+                "                    <a href=\"" + erc721Asset.external_link +"\" class=\"ck-token-original-url\">View on CrytoKitties.co</a>\n" +
+                "                </div>"
+                list.appendChild(li);
+            }
+        }else {
+            ckContract.tokensOfOwner(owner).then(tokens => {
+                for (let tokenId in tokens) {
+                    let li = document.createElement("li");
+                    li.innerHTML = "<strong>" + tokens[tokenId] + "</strong>";
+                    list.appendChild(li);
+                }
+            });
+        }
+    });
+}
 
 async function setup() {
     await window.ethereum.enable();
@@ -107,43 +66,18 @@ async function setup() {
     ckContract = new ethers.Contract(ckContractAddress, ckContractAbi, signer);
 
     kittieTraderContract.getKittieBalance().then(output => {
-        const kittiesCounterElement = document.getElementById("kitties-counter");
-        kittiesCounterElement.innerText = output.toString();
+        const kittiesBalanceElement = document.getElementById("kitties-balance");
+        kittiesBalanceElement.innerText = output.toString();
     });
 
-    fetch('https://rinkeby-api.opensea.io/api/v1/assets/?asset_contract_addresses=' + ckContractAddress + '&owner=' + kittieTraderContractAddress)
-        .then(response => {
-            return response.json();
-        }).then(data => {
-            if(data.assets.length > 0) {
-                for (let assetNumber in data.assets) {
-                    let erc721Asset = data.assets[assetNumber];
-                    const id = erc721Asset.id;
+    kittieTraderContract.getOurTokenBalance().then(output => {
+        const sryBalanceElement = document.getElementById("sry-balance");
+        sryBalanceElement.innerText = output.toString() + " $SRY";
+    });
 
-                    let li = document.createElement("li");
-                    li.innerHTML = "<div class=\"ck-token\">\n" +
-                        "                    <img src=\"" + erc721Asset.image_original_url + "\" alt=\"\" class=\"ck-token-image\">\n" +
-                        "                    <p>\n" +
-                        "                        <strong class=\"ck-token-id\">\n" +
-                        "                            ID: " + id + "\n" +
-                        "                        </strong>\n" +
-                        "                        <br>\n" +
-                        "                        <span class=\"ck-token-description\">" + erc721Asset.description + "</span>\n" +
-                        "                    </p>" +
-                        "                    <button class='ck-token-buy-button' onclick='buyToken(" + id +")'>Buy with 1 $MOHAN</button>"
-                    "                    <a href=\"" + erc721Asset.external_link +"\" class=\"ck-token-original-url\">View on CrytoKitties.co</a>\n" +
-                    "                </div>"
-                    ckOwnedTokensList.appendChild(li);
-                }
-            }else {
-                ckContract.tokensOfOwner(kittieTraderContractAddress).then(tokens => {
-                    for (let tokenId in tokens) {
-                        let li = document.createElement("li");
-                        li.innerHTML = "<strong>" + tokens[tokenId] + "</strong>";
-                        ckOwnedTokensList.appendChild(li);
-                    }
-                });
-            }
+    listOwnedTokens(ckBuyOwnedTokensList, kittieTraderContractAddress);
+    await signer.getAddress().then(address => {
+        listOwnedTokens(ckSellOwnedTokensList, address);
     });
 }
 
@@ -151,15 +85,34 @@ function buyToken(tokenId) {
     mohanTokenContract.approve(kittieTraderContractAddress, (1).toString(), {gasLimit: 2500000}).then(() => {
         kittieTraderContract.giveMeKittie(tokenId, {gasLimit: 2500000}).then(() => {
             console.log("Successfully transacted!");
-            window.alert("Successfully bought kittie number " + tokenId);
+            window.alert("Successfully bought kitty number " + tokenId);
             window.location.reload();
-        })
+        });
+    });
+}
+
+function sellToken(tokenId) {
+    ckContract.approve(kittieTraderContractAddress, tokenId, {gasLimit: 2500000}).then(() => {
+        kittieTraderContract.sellKittie(tokenId, {gasLimit: 2500000}).then(() => {
+            console.log("Successfully transacted!");
+            window.alert("Successfully sold kittie number " + tokenId);
+            window.location.reload();
+        });
     });
 }
 
 setup().then(() => {
     ckBuyButton.onclick = () => {
-        let tokenId = parseInt(ckTokenIdField.value);
-        buyToken(tokenId);
+        let tokenId = parseInt(ckBuyTokenIdField.value);
+        if(tokenId > 0) {
+            buyToken(tokenId);
+        }
     };
+
+    ckSellButton.onclick = () => {
+        let tokenId = parseInt(ckSellTokenIdField.value);
+        if(tokenId > 0) {
+            sellToken(tokenId);
+        }
+    }
 });
