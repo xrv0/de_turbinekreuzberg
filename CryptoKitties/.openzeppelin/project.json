@@ -4,7 +4,7 @@
     "KittyCore": "KittyCore"
   },
   "dependencies": {
-    "@openzeppelin/contracts-ethereum-package": "^2.5"
+    "@openzeppelin/contracts-ethereum-package": "^3.0.0"
   },
   "name": "CryptoKitties",
   "version": "1.0.0",
