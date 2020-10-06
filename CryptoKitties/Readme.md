@@ -8,6 +8,7 @@ you'll need npm from here ;)
 
 ### deploy base contracts
 
+`npx oz link @openzeppelin/contracts-ethereum-package`
 `npx oz deploy -k regular` ...
 (alles regular, wir daten hier nix mehr up ;) )
 
