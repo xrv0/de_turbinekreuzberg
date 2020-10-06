@@ -15,7 +15,6 @@ contract CryptoKittiesShop is Initializable {
     IERC20 _ourToken;
 
     function initialize(KittyCore ck, IERC20 ourToken) public initializer {
-        //todo: check wether KittyCore.name() == "CryptoKitties")
         _ck = ck;
         _ourToken = ourToken;
     }
