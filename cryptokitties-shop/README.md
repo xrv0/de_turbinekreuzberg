@@ -39,4 +39,13 @@ aka ("Sury"-)token sample
 3. transfer back the kitty `npx oz send-tx` -> `giveMeKittie(number)`
 
 
+# setup the frontend
+
+copy .env to .env.local and change the contract addresses
+`npm run dev`  
+
+sometimes you need to `rm -rf .cache` so parcel loves you again.
+
+(change the production build command to npm run build and add environment secrets to your fleek instance)
+
 
