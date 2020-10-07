@@ -7,7 +7,6 @@ import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC721/ERC721.s
 import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
 
 abstract contract KittyCore is IERC721 {
-    //function tokensOfOwner(address _owner) external virtual view returns(uint256[] memory ownerTokens);
     function transfer(address _to, uint256 _tokenId) external virtual;
 }
 
@@ -16,7 +15,6 @@ contract CryptoKittiesShop is Initializable {
     IERC20 _ourToken;
 
     function initialize(KittyCore ck, IERC20 ourToken) public initializer {
-        //todo: check wether KittyCore.name() == "CryptoKitties")
         _ck = ck;
         _ourToken = ourToken;
     }
@@ -26,6 +24,13 @@ contract CryptoKittiesShop is Initializable {
         require(allowance >= 1);
         _ourToken.transferFrom(msg.sender, address(this), 1);
         _ck.transfer(msg.sender, tokenId);
+    }
+
+    function sellKittie(uint tokenId) {
+        uint256 balance = _ourToken.balanceOf(address(this));
+        require(balance >= 1);
+        _ck.transferFrom(msg.sender, address(this), tokenId);
+        _ourToken.transfer(msg.sender, 1);
     }
 
     function getKittieBalance() public view returns (uint256) {
