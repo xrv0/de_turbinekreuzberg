@@ -21,6 +21,8 @@ async function setup() {
     const network = await provider.getNetwork();
     console.debug("running network %s at block number %s", network.chainId, bn);
 
+    console.log(process.env.CONTRACT_ADDRESS_KITTY_TRADER);
+
     contracts = buildContracts(provider, {
         kittyTrader: process.env.CONTRACT_ADDRESS_KITTY_TRADER,
         kittyCore: process.env.CONTRACT_ADDRESS_KITTY_CORE,
@@ -99,7 +101,7 @@ async function updateKittyItems(provider, owner, list, methodToCall, buttonText)
     }
 }
 
-async function main({ contracts, provider }) {
+async function updateBalancesAndLists() {
     await updateKittyCount(contracts.kittyTrader);
     await updateERC20Balance(contracts.kittyTrader, contracts.mohanToken);
 
@@ -113,25 +115,16 @@ async function main({ contracts, provider }) {
  */
 export async function buyToken(tokenId) {
     await doBuyToken(tokenId);
-    await updateKittyCount(contracts.kittyTrader);
-    await updateERC20Balance(contracts.kittyTrader, contracts.mohanToken);
-
-    await updateKittyItems(provider, contracts.kittyTrader.address, smartContractTokenList, "buyToken");
-    await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken");
-
+    await updateBalancesAndLists();
     window.alert("Successfully bought kittie number " + tokenId);
 }
 
 export async function sellToken(tokenId) {
     await doSellToken(tokenId);
-    await updateKittyCount(contracts.kittyTrader);
-    await updateERC20Balance(contracts.kittyTrader, contracts.mohanToken);
-
-    await updateKittyItems(provider, contracts.kittyTrader.address, smartContractTokenList, "buyToken");
-    await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken");
+    await updateBalancesAndLists();
     window.alert("Successfully sold kittie number " + tokenId);
 }
 
 //this looks intelligent ;) 
-setup().then(main);
+setup().then(updateBalancesAndLists);
 

@@ -70,7 +70,7 @@ section {
   list-style-type: none;
   display: grid;
   align-items: start;
-  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 
@@ -89,4 +89,8 @@ section {
 
 .strong-font-size {
   font-size: 25px;
+}
+
+#centered-box {
+  margin-left: 10%;
 }
