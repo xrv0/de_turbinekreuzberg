@@ -1,7 +1,11 @@
-.home {
-  background-color: #323232;
-  font-family: 'Source Code Pro', monospace;
-  color: #ffff;
+html {
+  font-family: Calibre, Helvetica, Arial, sans-serif;;
+  color: #82817D;
+  background-color: white;
+}
+
+strong {
+  color: rgb(42, 40, 37);
 }
 
 section {
@@ -29,4 +33,48 @@ section {
 #ck-owned-tokens-list {
   padding-left: 10px;
   list-style-type: none;
+}
+
+.kitty-offer-outer {
+  background-color: #ffe0e5;
+  width: 210px;
+  height: 250px;
+  border-radius: 8px;
+  color: black;
+  transition: all .2s ease-in-out;
+}
+
+.kitty-offer-outer:hover {
+  transform: scale(1.015);
+}
+
+.kitty-offer-buy-button-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kitty-offer-buy-button {
+  font-size: 20px;
+  border: none;
+  border-radius: 16px;
+  padding: 3px 40px;
+  box-shadow: 2px 3px #888888;
+  transition: all .2s ease-in-out;
+  outline:none;
+}
+
+.kitty-offer-buy-button:hover {
+  transform: scale(1.1);
+}
+
+.kitty-name-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+}
+
+#top-logo {
+  width: 50px ;
 }
