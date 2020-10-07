@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
 <div class="top-title-div">
     <div class="top-title-img">
         <img src="src/img/logo.gif" alt="" id="top-logo">
@@ -14,26 +13,26 @@
         <span><strong>Cryptokitties Shop</strong> Exchange Sury Tokens for real Cryptokitties</span>
     </div>
 </div>
+<div id="centered-box">
+    <section class="shop-section">
+        <div class="buy-kitties-title-dc-div">
+            <p><strong class="strong-font-size">Buy kitties</strong> <br> Buy your own kitties with $SRY </p>
+        </div>
+        <ul id="ck-owned-tokens-list-buy" class="kittie-list"></ul>
+    </section>
+    <section class="sell-section">
+        <p><strong class="strong-font-size">Sell kitties</strong> <br> Sell your own kitties to exchange them for $SRY </p>
+        <ul id="ck-owned-tokens-list-sell" class="kittie-list">
+        </ul>
+    </section>
 
+    <section class="counter-section" class="counter">
+        <p>
+            The smart contract has <strong id="kitties-balance"> loading...</strong> Cryptokitties and a balance of <strong
+                id="sry-balance"> loading... </strong>!
+        </p>
+    </section>
 </div>
-<section class="shop-section">
-    <div class="buy-kitties-title-dc-div">
-        <p><strong class="strong-font-size">Buy kitties</strong> <br> Buy your own kitties with $SRY </p>
-    </div>
-    <ul id="ck-owned-tokens-list-buy" class="kittie-list"></ul>
-</section>
-<section class="sell-section">
-    <p><strong class="strong-font-size">Sell kitties</strong> <br> Sell your own kitties to exchange them with $SRY </p>
-    <ul id="ck-owned-tokens-list-sell" class="kittie-list">
-    </ul>
-</section>
-
-<section class="counter-section" class="counter">
-    <p>
-        The smart contract has <strong id="kitties-balance"> loading...</strong> Cryptokitties and a balance of <strong
-            id="sry-balance"> loading... </strong>!
-    </p>
-</section>
 <script src="./src/index.js"></script>
 </body>
 </html>
