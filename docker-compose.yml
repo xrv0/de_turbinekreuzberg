@@ -8,6 +8,7 @@ services:
       - "7545:8545"
     command:
       - --mnemonic=minimum symptom minute gloom tragic situate silver mechanic salad amused elite hotel
+      - --db=/ganache_data
       - --networkId=5779
       - -l 10000000
       - -b 15
