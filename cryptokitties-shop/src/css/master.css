@@ -1,7 +1,16 @@
-.home {
-  background-color: #323232;
-  font-family: 'Source Code Pro', monospace;
-  color: #ffff;
+html {
+  font-family: Calibre, Helvetica, Arial, sans-serif;;
+  color: #82817D;
+  background-color: white;
+}
+
+#top-logo {
+  width: 50px;
+  vertical-align: middle;
+}
+
+strong {
+  color: rgb(42, 40, 37);
 }
 
 section {
@@ -10,23 +19,74 @@ section {
   font-size: 19px;
 }
 
-.welcome-text {
-  text-align: center;
-  font-size: 65px;
+.kitty-offer-outer {
+  background-color: #ffe0e5;
+  border-radius: 8px;
+
+  width: 210px;
+  height: 280px;
+  margin: 10px;
+
+  transition: all .2s ease-in-out;
 }
 
-.ck-token-image {
-  width: 200px;
-  height: 200px;
+.kitty-offer-outer:hover {
+  transform: scale(1.015);
 }
 
-.ck-token {
-  margin-bottom: 10px;
-  padding: 5px;
-  border: 1px solid white;
+.kitty-offer-buy-button-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#ck-owned-tokens-list {
-  padding-left: 10px;
+.kitty-offer-buy-button {
+  background-color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 16px;
+  padding: 3px 40px;
+  box-shadow: 2px 3px #a2a2a2;
+  transition: all .2s ease-in-out;
+  outline:none;
+  margin-bottom: 5px;
+}
+
+.kitty-offer-buy-button:hover {
+  transform: scale(1.1);
+}
+
+.kitty-offer-name {
+  font-size: 18px;
+  padding-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kittie-list {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
+  display: grid;
+  align-items: start;
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+}
+
+
+.top-title-div {
+  text-align: center;
+}
+
+.top-title-img{
+  display: inline;
+  vertical-align: middle;
+}
+
+.top-title-text {
+  display: inline;
+}
+
+.strong-font-size {
+  font-size: 25px;
 }

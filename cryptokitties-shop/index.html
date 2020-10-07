@@ -1,26 +1,39 @@
 <!doctype html>
 <html class="home">
 <head>
-  <title>Crypto Kitties Shop</title>
+    <title>Crypto Kitties Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1 class="welcome-text">CRYPTOKITTIES SHOP</h1>
-  </div>
-  <section class="counter-section" class="counter">
+
+<div class="top-title-div">
+    <div class="top-title-img">
+        <img src="src/img/logo.gif" alt="" id="top-logo">
+    </div>
+    <div class="top-title-text">
+        <span><strong>Cryptokitties Shop</strong> Exchange Sury Tokens for real Cryptokitties</span>
+    </div>
+</div>
+
+</div>
+<section class="shop-section">
+    <div class="buy-kitties-title-dc-div">
+        <p><strong class="strong-font-size">Buy kitties</strong> <br> Buy your own kitties with $SRY </p>
+    </div>
+    <ul id="ck-owned-tokens-list-buy" class="kittie-list"></ul>
+</section>
+<section class="sell-section">
+    <p><strong class="strong-font-size">Sell kitties</strong> <br> Sell your own kitties to exchange them with $SRY </p>
+    <ul id="ck-owned-tokens-list-sell" class="kittie-list">
+    </ul>
+</section>
+
+<section class="counter-section" class="counter">
     <p>
-      The smart contract has <strong id="kitties-balance"> loading...</strong> Cryptokitties and a balance of <strong id="sry-balance"> loading... </strong>!
+        The smart contract has <strong id="kitties-balance"> loading...</strong> Cryptokitties and a balance of <strong
+            id="sry-balance"> loading... </strong>!
     </p>
-  </section>
-  <section class="shop-section">
-    <h2>
-      BUY A KITTY
-    </h2>
-    <ul id="ck-owned-tokens-list-buy"></ul>
-  </section>
-  <section class="sell-section">
-    <h2>SELL A KITTIE</h2>
-    <ul id="ck-owned-tokens-list-sell"></ul>
-  </section>
-  <script src="./src/index.js"></script>
+</section>
+<script src="./src/index.js"></script>
 </body>
 </html>
