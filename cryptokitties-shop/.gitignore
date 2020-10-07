@@ -1,3 +1,5 @@
 .openzeppelin/.session
 .openzeppelin/dev-*
 build
+dist
+.env*.local

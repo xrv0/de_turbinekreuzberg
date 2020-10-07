@@ -1,5 +1,6 @@
 .idea/
 .DS_Store
+.cache
 .ganache_data
 node_modules
 
