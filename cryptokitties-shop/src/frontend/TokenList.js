@@ -6,7 +6,7 @@ function clear(list) {
 }
 
 export function renderTokenList(tokens, list, methodToCall) {
-    clear(smartContractTokenList);
+    clear(list);
     tokens.map(token => {
         const li = document.createElement("li");
         li.innerHTML = `<span>
