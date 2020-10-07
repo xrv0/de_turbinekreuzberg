@@ -99,7 +99,7 @@ async function updateKittyItems(provider, owner, list, methodToCall) {
     }
 }
 
-async function main({ contracts, provider }) {
+async function updateBalancesAnsLists() {
     await updateKittyCount(contracts.kittyTrader);
     await updateERC20Balance(contracts.kittyTrader, contracts.mohanToken);
 
@@ -113,25 +113,18 @@ async function main({ contracts, provider }) {
  */
 export async function buyToken(tokenId) {
     await doBuyToken(tokenId);
-    await updateKittyCount(contracts.kittyTrader);
-    await updateERC20Balance(contracts.kittyTrader, contracts.mohanToken);
-
-    await updateKittyItems(provider, contracts.kittyTrader.address, smartContractTokenList, "buyToken");
-    await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken");
+    await updateBalancesAnsLists();
 
     window.alert("Successfully bought kittie number " + tokenId);
 }
 
 export async function sellToken(tokenId) {
     await doSellToken(tokenId);
-    await updateKittyCount(contracts.kittyTrader);
-    await updateERC20Balance(contracts.kittyTrader, contracts.mohanToken);
+    await updateBalancesAnsLists();
 
-    await updateKittyItems(provider, contracts.kittyTrader.address, smartContractTokenList, "buyToken");
-    await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken");
     window.alert("Successfully sold kittie number " + tokenId);
 }
 
 //this looks intelligent ;) 
-setup().then(main);
+setup().then(updateBalancesAnsLists);
 
