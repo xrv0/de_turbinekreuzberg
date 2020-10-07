@@ -1,23 +1,25 @@
-const component = document.getElementById("ck-owned-tokens-list");
+export const smartContractTokenList = document.getElementById("ck-owned-tokens-list-buy");
+export const userTokenList = document.getElementById("ck-owned-tokens-list-sell");
 
-function clear() {
-    component.innerHTML = "";
+function clear(list) {
+    list.innerHTML = "";
 }
-export function renderTokenList(tokens) {
-    clear();
+
+export function renderTokenList(tokens, list, methodToCall) {
+    clear(smartContractTokenList);
     tokens.map(token => {
         const li = document.createElement("li");
         li.innerHTML = `<span>
             <strong>${token}</strong>
-            <button onClick="CKShop.buyToken(${token})">buy</button>
+            <button onClick="CKShop.${methodToCall}(${token})">buy</button>
             </span>
         `;
-        component.appendChild(li);
-    })
+        smartContractTokenList.appendChild(li);
+    });
 }
 
-export function renderAssets(assets) {
-    clear();
+export function renderAssets(assets, list, methodToCall) {
+    clear(list);
     assets.map(asset => {
         const assetHtml = `
             <img src="${asset.image_original_url}" alt="" class="ck-token-image" />
@@ -28,13 +30,13 @@ export function renderAssets(assets) {
                 <br />
                 <span class="ck-token-description">${asset.description}</span>
             </p>
-            <button class="ck-token-buy-button" onclick="buyToken(${asset.id})">Buy with 1 $MOHAN</button>
+            <button class="ck-token-buy-button" onclick="CKShop.${methodToCall}(${asset.id})">Buy with 1 $MOHAN</button>
             <a href="${asset.external_link}" class="ck-token-original-url">View on CrytoKitties.co</a>
         `
         const li = document.createElement("li");
         li.setAttribute("class", "ck-token");
 
         li.innerHTML = assetHtml;
-        component.appendChild(li);
+        list.appendChild(li);
     });
 }
