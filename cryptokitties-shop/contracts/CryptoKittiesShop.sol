@@ -26,7 +26,7 @@ contract CryptoKittiesShop is Initializable {
         _ck.transfer(msg.sender, tokenId);
     }
 
-    function sellKittie(uint tokenId) {
+    function sellKittie(uint256 tokenId) public {
         uint256 balance = _ourToken.balanceOf(address(this));
         require(balance >= 1);
         _ck.transferFrom(msg.sender, address(this), tokenId);
