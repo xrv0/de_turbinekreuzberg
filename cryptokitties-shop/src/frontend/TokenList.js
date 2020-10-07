@@ -5,7 +5,7 @@ function clear(list) {
     list.innerHTML = "";
 }
 
-export function renderTokenList(tokens, list, methodToCall) {
+export function renderTokenList(tokens, list, methodToCall, buttonText) {
     clear(list);
 
     //This just uses a placeholder image for now
@@ -18,7 +18,7 @@ export function renderTokenList(tokens, list, methodToCall) {
             </div>
             <img src="https://img.cryptokitties.co/0x06012c8cf97bead5deae237070f9587f8e7a266d/1671786.svg" alt="">
             <div class="kitty-offer-buy-button-outer">
-              <button class="kitty-offer-buy-button" onclick="CKShop.${methodToCall}(${token})">Buy</button>
+              <button class="kitty-offer-buy-button" onclick="CKShop.${methodToCall}(${token})">${buttonText}</button>
             </div>
         </div>
         `;
@@ -26,7 +26,7 @@ export function renderTokenList(tokens, list, methodToCall) {
     });
 }
 
-export function renderAssets(assets, list, methodToCall) {
+export function renderAssets(assets, list, methodToCall, buttonText) {
     clear(list);
     assets.map(asset => {
         const assetHtml = `
@@ -36,7 +36,7 @@ export function renderAssets(assets, list, methodToCall) {
             </div>
             <img src="${asset.image_original_url}" alt="">
             <div class="kitty-offer-buy-button-outer">
-              <button class="kitty-offer-buy-button" onclick="CKShop.${methodToCall}(${asset.id})">Buy</button>
+              <button class="kitty-offer-buy-button" onclick="CKShop.${methodToCall}(${asset.id})">${buttonText}</button>
             </div>
         </div>
         `;

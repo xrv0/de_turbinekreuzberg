@@ -85,17 +85,17 @@ async function updateERC20Balance(kittyTrader, mohanToken) {
 /**
  * which kitties do we own?
  */
-async function updateKittyItems(provider, owner, list, methodToCall) {
+async function updateKittyItems(provider, owner, list, methodToCall, buttonText) {
     const network = await provider.getNetwork();
     if (network.chainId < 100) { //any testnet
         const contractAssets = await retrieveContractAssets(
             contracts.kittyCore.address,
             owner
         );
-        renderAssets(contractAssets, list, methodToCall);
+        renderAssets(contractAssets, list, methodToCall, buttonText);
     } else {
         const tokens = await contracts.kittyCore.tokensOfOwner(owner);
-        renderTokenList(tokens, list, methodToCall);
+        renderTokenList(tokens, list, methodToCall, buttonText);
     }
 }
 
@@ -103,8 +103,8 @@ async function main({ contracts, provider }) {
     await updateKittyCount(contracts.kittyTrader);
     await updateERC20Balance(contracts.kittyTrader, contracts.mohanToken);
 
-    await updateKittyItems(provider, contracts.kittyTrader.address, smartContractTokenList, "buyToken");
-    await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken");
+    await updateKittyItems(provider, contracts.kittyTrader.address, smartContractTokenList, "buyToken", "Buy");
+    await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken", "Sell");
 }
 
 /**
