@@ -11,10 +11,10 @@ export function renderTokenList(tokens, list, methodToCall) {
         const li = document.createElement("li");
         li.innerHTML = `<span>
             <strong>${token}</strong>
-            <button onClick="CKShop.${methodToCall}(${token})">buy</button>
+            <button onClick="CKShop.${methodToCall}(${token})">Select</button>
             </span>
         `;
-        smartContractTokenList.appendChild(li);
+        list.appendChild(li);
     });
 }
 
@@ -30,7 +30,7 @@ export function renderAssets(assets, list, methodToCall) {
                 <br />
                 <span class="ck-token-description">${asset.description}</span>
             </p>
-            <button class="ck-token-buy-button" onclick="CKShop.${methodToCall}(${asset.id})">Buy with 1 $MOHAN</button>
+            <button class="ck-token-buy-button" onclick="CKShop.${methodToCall}(${asset.id})">Select</button>
             <a href="${asset.external_link}" class="ck-token-original-url">View on CrytoKitties.co</a>
         `
         const li = document.createElement("li");

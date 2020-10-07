@@ -104,7 +104,7 @@ async function main({ contracts, provider }) {
     await updateERC20Balance(contracts.kittyTrader, contracts.mohanToken);
 
     await updateKittyItems(provider, contracts.kittyTrader.address, smartContractTokenList, "buyToken");
-    //await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken");
+    await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken");
 }
 
 /**
@@ -117,7 +117,7 @@ export async function buyToken(tokenId) {
     await updateERC20Balance(contracts.kittyTrader, contracts.mohanToken);
 
     await updateKittyItems(provider, contracts.kittyTrader.address, smartContractTokenList, "buyToken");
-    //await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken");
+    await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken");
 
     window.alert("Successfully bought kittie number " + tokenId);
 }
@@ -128,8 +128,7 @@ export async function sellToken(tokenId) {
     await updateERC20Balance(contracts.kittyTrader, contracts.mohanToken);
 
     await updateKittyItems(provider, contracts.kittyTrader.address, smartContractTokenList, "buyToken");
-    //await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken"); Overrides the buy asset list for some reason
-
+    await updateKittyItems(provider, await provider.getSigner().getAddress(), userTokenList, "sellToken");
     window.alert("Successfully sold kittie number " + tokenId);
 }
 
