@@ -1,5 +1,5 @@
 const contractAbi = [{"inputs":[{"internalType":"string","name":"message","type":"string"}],"name":"postMessage","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"getMessagesSize","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"messages","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}];
-const contractAddress = "0x560962D72C77Ad90F5e1839FeF8E8499d46688CB";
+const contractAddress = "0xFE99322F7989CEB1613F1510512556465819e312";
 
 const messageBox = document.getElementById("message-box")
 const messagesList = document.getElementById("post-list")
