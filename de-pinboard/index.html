@@ -10,30 +10,46 @@
     <script defer src="main.js"></script>
 </head>
 <body>
-<h1 id="headline">Dezentrales Nachrichten-Board</h1>
-<h2>Posts:</h2>
-<span>
-    <ul id="post-list"></ul>
-</span>
+<div id="centered-box">
+    <div class="top-title-div">
+        <div class="top-title-img">
+            <img src="logo.png" alt="" id="top-logo" width="50px">
+        </div>
+        <div class="top-title-text">
+            <span><strong>De-Message-Board</strong> A decentralized message board running on ethereum</span>
+        </div>
+    </div>
 
-<h2>Post your own message</h2>
-<div id="message-post-area">
-    <label>
-        <textarea id="message-box" name="message-box" cols="42" rows="16"></textarea>
-    </label>
-    <br>
-    <input type="text" id="author-box" placeholder="Your username">
-    <br>
-    <button id="message-submit-button" type="button">Post</button>
+    <strong>
+        <h2>Posts</h2>
+    </strong>
+    <span>
+        <ul id="post-list"></ul>
+    </span>
+
+    <strong>
+        <h2>
+            Post your own message
+        </h2>
+    </strong>
+    <div id="message-post-area">
+        <label>
+            <textarea id="message-box" name="message-box" cols="42" rows="16"></textarea>
+        </label>
+        <br>
+        <input type="text" id="author-box" placeholder="Your username">
+        <br>
+        <button id="message-submit-button" type="button">Post</button>
+    </div>
+
+    <h2>Contract</h2>
+    <span>
+        <h3>
+            <a target="_blank" href="https://rinkeby.etherscan.io/address/0x560962D72C77Ad90F5e1839FeF8E8499d46688CB">0x560962D72C77Ad90F5e1839FeF8E8499d46688CB</a>
+        </h3>
+    </span>
+
+    <button type="button" onclick="window.ethereum.enable()">Manually connect to MetaMask</button>
 </div>
-
-<h2>Contract</h2>
-<span>
-    <h3>
-        <a target="_blank" href="https://rinkeby.etherscan.io/address/0x560962D72C77Ad90F5e1839FeF8E8499d46688CB">0x560962D72C77Ad90F5e1839FeF8E8499d46688CB</a>
-    </h3>
-</span>
-
-<button type="button" onclick="window.ethereum.enable()">Manually connect to MetaMask</button>
 </body>
 </html>

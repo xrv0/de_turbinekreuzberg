@@ -13,6 +13,8 @@ strong {
   color: rgb(42, 40, 37);
 }
 
+.
+
 section {
   margin-left: 20px;
   margin-bottom: 10px;
@@ -73,6 +75,10 @@ section {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
+#top-logo {
+  width: 50px;
+  height: 50px;
+}
 
 .top-title-div {
   text-align: center;

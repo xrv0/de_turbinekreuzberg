@@ -1,5 +1,15 @@
-body {
-  font-family: 'Roboto', sans-serif;
+html {
+  font-family: Calibre, Helvetica, Arial, sans-serif;;
+  color: #82817D;
+  background-color: white;
+}
+
+strong {
+  color: rgb(42, 40, 37);
+}
+
+.message {
+  color: rgb(42, 40, 37);
 }
 
 #headline {
@@ -8,23 +18,53 @@ body {
 }
 
 #post-list {
-  background-color: #ebebeb;
-  border-radius: 5px;
+  background-color: #cde2ec;
+  border-radius: 8px;
   padding: 10px;
+  margin: 5px;
   list-style-type: none;
 }
 
 #message-post-area {
-  background-color: #d4d4d4;
-  border-radius: 5px;
+  background-color: #cde2ec;
+  border-radius: 8px;
   padding: 10px;
+  margin: 5px;
+  list-style-type: none;
+}
+
+.top-title-img{
+  display: inline;
+  vertical-align: middle;
+}
+
+.top-title-text {
+  display: inline;
+}
+
+.strong-font-size {
+  font-size: 25px;
+}
+
+
+.top-title-div {
+  text-align: center;
 }
 
 #post-list li {
   margin: 10px;
-  background-color: #c7c7c7;
-  border-radius: 5px;
-  padding: 4px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 8px;
+  transition: all .2s ease-in-out;
+
+  -webkit-box-shadow: 2px 0px 12px 0px rgba(196,196,196,1);
+  -moz-box-shadow: 2px 0px 12px 0px rgba(196,196,196,1);
+  box-shadow: 2px 0px 12px 0px rgba(196,196,196,1);
+}
+
+#post-list li:hover {
+  transform: scale(1.01);
 }
 
 #message-submit-button {
@@ -34,4 +74,9 @@ body {
 .author {
   text-decoration: underline;
   text-decoration-style: solid;
+}
+
+#centered-box {
+  margin-left: 10%;
+  margin-right: 10%;
 }

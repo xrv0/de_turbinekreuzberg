@@ -23,11 +23,11 @@ async function updateMessages() {
                         const message = args[1];
 
                         let li = document.createElement("li");
-                        li.innerHTML = "<div><span class='author'>" + author + "</span><div class='message'>"+ message + "</div></div>";
+                        li.innerHTML = "<div><span class='author'>" + author + "</span><div class='message'><strong>"+ message + "</strong></div></div>";
                         messagesList.appendChild(li);
                     }else {
                         let li = document.createElement("li");
-                        li.appendChild(document.createTextNode(value));
+                        li.innerHTML = "<strong>"  + value + "</strong>"
                         messagesList.appendChild(li);
                     }
                 })
