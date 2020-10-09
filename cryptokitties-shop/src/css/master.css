@@ -30,6 +30,10 @@ section {
   transition: all .2s ease-in-out;
 }
 
+.kitty-offer-img {
+  width: 100%;
+}
+
 .kitty-offer-outer:hover {
   transform: scale(1.015);
 }
