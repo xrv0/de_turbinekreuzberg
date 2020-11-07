@@ -1,0 +1,2 @@
+Das Ziel ist ein dezentrales Wählen über Blockchains. Wir wollen ein Interface machen, wo man selber seine Wahl erstellen kann.
+je nach dem wie viele Optionen es gibt, erstellt der conrtact wallets. Jeder Wahlberechtigte bekommt einen Token mit den er/sie wählen kann.
